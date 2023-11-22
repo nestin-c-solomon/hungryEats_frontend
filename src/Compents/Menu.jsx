@@ -70,7 +70,7 @@ function Menu() {
 
   return (
     <Container>
-      <div style={{ marginTop: '10%' }}>
+      <div style={{ marginTop: '5%' }}>
         <h1 className='text-dark'>Menu</h1>
       </div>
       <Row className='w-25 d-flex ms-auto'>
