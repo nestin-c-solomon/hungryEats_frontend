@@ -1,0 +1,21 @@
+.custom-select-dark:focus,
+    .custom-select-dark:hover {
+      border-color: black; /* Change the border color to black */
+      box-shadow: none; /* Optional: Remove the box shadow if it's present */
+    }
+
+    .custom-select-dark option:checked {
+      background-color: rgb(0, 0, 0);
+      color: white;
+    }
+    .selected-items-container {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-100%);
+      padding: 20px;
+      background-color: #91b81b;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    
