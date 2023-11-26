@@ -2,6 +2,7 @@
 import React from 'react';
 import Hero from '../Components/Hero'
 import { useSelector } from 'react-redux';
+import Menus from './Menus';
 
 function Landing() {
   const cartArray = useSelector((state) => state.cartReducer);
@@ -10,6 +11,7 @@ function Landing() {
   return (
     <div>
       <Hero />
+      <Menus/>
     </div>
   );
 }

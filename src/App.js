@@ -6,6 +6,7 @@ import Landing from './Pages/Landing';
 import Cart from './Pages/Cart';
 import Menus from './Pages/Menus';
 import Menu from './Components/Menu';
+import Kitchen from './Pages/Kitchen';
 
 function App() {
   return (
@@ -15,8 +16,8 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/menu" element={<Menus />} />
+          <Route path="/kitchen" element={<Kitchen/>} />
         </Routes>
-        <Menu />
     </div>
   );
 }
