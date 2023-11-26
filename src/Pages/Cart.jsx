@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { emptyCart, removeFromCart } from '../redux/slices/cartSlice';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
 function Cart() {
   //useselector hook to access state 
@@ -51,7 +52,7 @@ function Cart() {
   }
 
   return (
-    <div style={{ marginTop: '100px' }}>
+    <div style={{ width:'100%',marginTop: '100px', height:'73vh'}}>
       <div className='row'>
         {cartArray?.length > 0 ?
           <div className='col-lg-6 m-5'>
@@ -86,15 +87,22 @@ function Cart() {
             </table>
           </div>
           :
-          <p>Nothing to display</p>
+          <center>
+            <div className='w-50'>
+              <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0845c232253239.56766f2d063c9.gif" style={{width:'50%'}} alt="" />
+              <h4 style={{color:'gray'}} >Waiting for New Orders</h4>
+            </div>
+          </center>
         }
-        <div className='col-lg-4 card shadow border p-5 ms-auto' style={{marginRight:'10%'}}>
+        {cartArray.length > 0 && (
+          <div className='col-lg-4 card shadow border p-5 ms-auto' style={{marginRight:'10%'}}>
             <h1 className='text-center text-dark'>Cart Summary</h1>
             <p className='fs-3 fw-medium mt-4'>Total items in cart: <span style={{}}>{cartArray.length}</span> </p>
             {/* <p className='fs-3 fw-medium'>Total price: {total} </p> */}
             <p className='fs-3 fw-medium'>Total price: ₹ <span style={{color:'orange'}}>{total}</span> </p>
             <button className='btn btn-success w-100 rounded' onClick={()=>addToOrder(cartArray)}>Checkout & Pay</button>
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

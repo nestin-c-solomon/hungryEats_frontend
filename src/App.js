@@ -7,6 +7,7 @@ import Cart from './Pages/Cart';
 import Menus from './Pages/Menus';
 import Menu from './Components/Menu';
 import Kitchen from './Pages/Kitchen';
+import Footer from './Components/Foot';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           <Route path="/menu" element={<Menus />} />
           <Route path="/kitchen" element={<Kitchen/>} />
         </Routes>
+        <Footer />
+        
     </div>
   );
 }
