@@ -31,8 +31,9 @@ function Header() {
             Menu
             </Nav.Link> */}
             <Link style={{textDecoration:'none', color:'black',fontWeight:'bold'}} to={'/menu'}>Menu</Link>
-          {/* <Nav.Link href="/cart"><i class="fa-solid fa-cart-shopping" style={{fontSize:'20px',color:'black'}}></i> <Badge bg="secondary">{cartArray.length}</Badge> </Nav.Link> */}
+            
           <Link to={'/cart'} className='ms-5' style={{textDecoration:'none', color:'black',fontWeight:'bold'}}>Cart <Badge bg="secondary">{cartArray.length}</Badge> </Link>
+          <Link className='ms-4 bg-dark px-4 rounded' style={{textDecoration:'none', color:'white',fontWeight:'bold'}} to={'/kitchen'}>Kitchen</Link>
         </Nav>
       </Navbar.Collapse>
     </Container>

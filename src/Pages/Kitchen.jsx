@@ -8,7 +8,7 @@ function Kitchen() {
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [data]);
 
     const fetchData = async () => {
         try {

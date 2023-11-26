@@ -203,17 +203,16 @@ function Menu() {
 
               {/* QTY INCREMENT OR DECREMENT */}
           <div className='d-flex justify-content-center mt-3'>
-
-                  {/* The decrement button will only be shown if the quantity is greater than zero */}
-                  { item.quantity>0 &&
-                    <button className='btn btn-primary' onClick={()=>decrementQuantity(item.id)}>-</button>
-                  }
-
-                  { item.quantity?
-                    <p>{item.quantity}</p>:
-                    <p>0</p>
-                    }
-                  <button className='btn btn-primary' onClick={()=>incrementQuantity(item.id)}>+</button>
+            {/* The decrement button will only be shown if the quantity is greater than zero */}
+            {item.quantity > 0 && (
+              <button className='btn btn-dark' onClick={() => decrementQuantity(item.id)}>-</button>
+            )}
+            {item.quantity ? (
+              <p className='mx-3 mt-1'>{item.quantity}</p>
+            ) : (
+              <div className='d-flex align-items-center justify-content-center'><p className='me-3 mt-1'> 0 </p></div>
+            )}
+            <button className='btn btn-dark' onClick={() => incrementQuantity(item.id)}>+</button>
           </div>
           
 

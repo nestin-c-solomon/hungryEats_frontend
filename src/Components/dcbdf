@@ -1,0 +1,154 @@
+import React, { useEffect, useState } from 'react';
+import { Container, Row, Col, Button, Badge } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../redux/slices/cartSlice';
+
+function Menu() {
+  const cartArray = useSelector((state) => state.cartReducer);
+  console.log(cartArray);
+
+  const dispatch = useDispatch();
+  const [tableNumber, setTableNumber] = useState('Select the table');
+  const [menuItems, setMenuItems] = useState([]);
+  const [displayedItems, setDisplayedItems] = useState(12);
+
+  const handleViewMore = () => {
+    // Increment the number of displayed items when the "View More" button is clicked
+    setDisplayedItems(prev => prev + 10);
+  };
+  
+  const handleAddToCart = (item) => {
+    const updatedItem = { ...item };
+    updatedItem.table_no = tableNumber;
+    updatedItem.total_price = updatedItem.quantity * updatedItem.price;
+
+    if (updatedItem.table_no === 'Select the table') {
+      alert('Select a table');
+    } else if (!('quantity' in updatedItem) || updatedItem.quantity === 0) {
+      alert('Please select quantity');
+    } else {
+      dispatch(addToCart(updatedItem));
+      alert('item added to cart');
+    }
+  };
+
+  const decrementQuantity = (itemId) => {
+    const updatedItems = menuItems.map((item) => {
+      if (item.id === itemId) {
+        if ('quantity' in item && item.quantity > 0) {
+          return {
+            ...item,
+            quantity: item.quantity - 1,
+          };
+        }
+      }
+      return item;
+    });
+    setMenuItems(updatedItems);
+  };
+
+  const incrementQuantity = (itemId) => {
+    const updatedItems = menuItems.map((item) => {
+      if (item.id === itemId) {
+        if (!('quantity' in item)) {
+          return {
+            ...item,
+            ['quantity']: 1,
+          };
+        } else {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        }
+      }
+      return item;
+    });
+    setMenuItems(updatedItems);
+  };
+  
+  return (
+    <Container>
+
+      <div style={{ marginTop: '5%' }}>
+        <h1 className='text-dark'>Menu</h1>
+      </div>
+      <Row className='w-25 d-flex ms-auto'>
+        <Form.Select
+          aria-label="Default select example"
+          value={tableNumber} 
+          onChange={(e) => setTableNumber(e.target.value)}
+        >
+          <option>Select the table</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </Form.Select>
+      </Row>
+      <Row className="menu-items mt-5 justify-content-center">
+        {menuItems.slice(0, displayedItems)?.map((item) => (
+          <Col key={item.id} xs={12} md={6} lg={3} className="mb-4">
+            <Card style={{ width: '100%' }} className="d-flex flex-column h-100">
+              {/* ... other card content ... */}
+              <div className="d-flex justify-content-center align-items-center mt-auto">
+                {cartArray.some((cartItem) => cartItem.id === item.id) ? (
+                  // If the item is in the cart, show the quantity counter
+                  <div className="d-flex align-items-center">
+                    <Button
+                      variant="dark"
+                      size="sm"
+                      onClick={() => decrementQuantity(item.id)}
+                      className="mx-2"
+                    >
+                      -
+                    </Button>
+                    <span>{item.quantity}</span>
+                    <Button
+                      variant="dark"
+                      size="sm"
+                      onClick={() => incrementQuantity(item.id)}
+                      className="mx-2"
+                    >
+                      +
+                    </Button>
+                  </div>
+                ) : (
+                  // If the item is not in the cart, show the "Add to cart" button
+                  <Button variant="dark" onClick={() => handleAddToCart(item)}>
+                    Add to cart
+                  </Button>
+                )}
+              </div>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+      {displayedItems < menuItems.length && (
+        <Row className="justify-content-center mt-3">
+          <Button className='w-50 mb-5' variant="dark" onClick={handleViewMore}>
+            View More
+          </Button>
+        </Row>
+      )}
+
+      {/* Display selected items */}                 {/* /  /DECOMMENT */}
+      {/* {selectedItems.length > 0 && (
+      <div className="selected-items-container rounded-5 w-25">
+        <h2>Cart</h2>
+        <ul>
+          {selectedItems.map(selectedItem => (
+            <li key={selectedItem.id}>
+              {selectedItem.name} - Quantity: {itemQuantities[selectedItem.id]}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )} */}
+    </Container>
+  );
+}
+
+export default Menu;

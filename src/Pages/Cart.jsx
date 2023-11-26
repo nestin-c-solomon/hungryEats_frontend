@@ -1,7 +1,5 @@
 // Cart.js
 
-
-
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from 'react-bootstrap/Button';
@@ -36,6 +34,10 @@ function Cart() {
 
 
   const addToOrder = async(order)=>{
+    if(cartArray.length === 0) {
+      alert('Cart is empty. Please add items to cart before placing an order.');
+      return;
+    }
     await axios({
       method: 'post',
       url: 'https://r2-backend.onrender.com/order',
@@ -86,8 +88,8 @@ function Cart() {
           :
           <p>Nothing to display</p>
         }
-        <div className='col-lg-4 border border-danger p-5'>
-            <h1 className='text-center text-warning'>Cart Summary</h1>
+        <div className='col-lg-4 card shadow border p-5 ms-auto' style={{marginRight:'10%'}}>
+            <h1 className='text-center text-dark'>Cart Summary</h1>
             <p className='fs-3 fw-medium mt-4'>Total items in cart: <span style={{}}>{cartArray.length}</span> </p>
             {/* <p className='fs-3 fw-medium'>Total price: {total} </p> */}
             <p className='fs-3 fw-medium'>Total price: ₹ <span style={{color:'orange'}}>{total}</span> </p>
@@ -99,70 +101,3 @@ function Cart() {
 }
 
 export default Cart;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* import React from 'react'
-import { useSelector } from 'react-redux'
-
-function Cart() {
-
-  const cartArray = useSelector((state)=>state.cartReducer)
-  console.log(cartArray);
-  return (
-    <div className='container'>
-      <h1>cart</h1>
-    </div>
-  )
-}
-
-export default Cart */
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* import React from 'react';
-import { useSelector } from 'react-redux';
-
-function Cart() {
-
-  const cartArray = useSelector((state)=>state.cartReducer)
-  console.log(cartArray);
-
-  return (
-    <>
-      <div className='container'>
-        <h1 className='mt-5'>Nothing in cart</h1>
-      </div>
-    </>
-  );
-}
-
-export default Cart; */
