@@ -1,7 +1,10 @@
 import React from 'react'
 import { Col } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 
 function Hero() {
+    const cartArray = useSelector((state)=>state.cartReducer)
+    console.log(cartArray);
   return (
     
       <div className='container -fluid d-flex ' style={{height:'500px'}}>
