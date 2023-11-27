@@ -11,7 +11,7 @@ function Header() {
   return (
     <>
       {['sm'].map((expand, index) => (
-        <Navbar key={expand} expand={expand} className=" conatainer bg-body-tertiary mb-3">
+        <Navbar key={expand} expand={expand} className= "bg-body-tertiary mb-3">
           <Container>
             <Navbar.Brand as={Link} to="/" style={{ textDecoration: 'none', color: 'black', fontWeight: 'bolder', fontSize: '25px' }}>
               <img src={logo} style={{ backgroundBlendMode: 'multiply', backgroundColor: 'transparent' }} width={75} alt="" />
