@@ -156,10 +156,10 @@ function Menu() {
       </Row>
       <Row className='menu-items mt-5 justify-content-center '>
   {menuItems.slice(0, displayedItems)?.map(item => (
-    <Col key={item.id} xs={12} md={6} lg={3} className="mb-4">
+    <Col key={item.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
       {/* setMenu(item) */}
       <Card style={{ width: '100%' }} className="d-flex flex-column h-100">
-        <Card.Img variant="top" src={item.img} />
+        <Card.Img variant="top" src={item.img} className='p-3 pounded' />
         <Card.Body className="d-flex flex-column">
           <Card.Title>{item.name}</Card.Title>
           <Card.Text>{item.dsc}</Card.Text>
@@ -186,24 +186,16 @@ function Menu() {
                 </Button>
               </div>
             ) : (
-              
               <Button
                 variant="dark"
                 onClick={() => handleAddToCart(item)}
-
-                
               >
                 Add to cart
-
               </Button>
-              
-              
             )}
           </div>
-
-              {/* QTY INCREMENT OR DECREMENT */}
+          {/* QTY INCREMENT OR DECREMENT */}
           <div className='d-flex justify-content-center mt-3'>
-            {/* The decrement button will only be shown if the quantity is greater than zero */}
             {item.quantity > 0 && (
               <button className='btn btn-dark' onClick={() => decrementQuantity(item.id)}>-</button>
             )}
@@ -214,15 +206,12 @@ function Menu() {
             )}
             <button className='btn btn-dark' onClick={() => incrementQuantity(item.id)}>+</button>
           </div>
-          
-
-          {/* setMenuItems(item) */}
         </Card.Body>
       </Card>
     </Col>
   ))}
-  
 </Row>
+
       {displayedItems < menuItems.length && (
         <Row className="justify-content-center mt-3">
           <Button className='w-50 mb-5' variant="dark" onClick={handleViewMore}>

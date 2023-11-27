@@ -89,7 +89,7 @@ function Cart() {
             </div>
             :
             <center>
-              <div className='w-50'>
+              <div className='w-50 mt-sm-5'>
                 <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0845c232253239.56766f2d063c9.gif" style={{width:'50%'}} alt="" />
                 <h4 style={{color:'gray'}} >Waiting for New Orders</h4>
               </div>

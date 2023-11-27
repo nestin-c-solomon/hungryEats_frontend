@@ -13,12 +13,15 @@ function App() {
   return (
     <div className="App d-flex flex-column" style={{minHeight:'100vh'}}>
         <Header />
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/menu" element={<Menus />} />
-          <Route path="/kitchen" element={<Kitchen/>} />
-        </Routes>
+        <div className='container d-flex flex-column'>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/menu" element={<Menus />} />
+            <Route path="/kitchen" element={<Kitchen/>} />
+          </Routes>
+          
+        </div>
         <Footer />
         
     </div>
