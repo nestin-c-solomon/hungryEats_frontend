@@ -40,9 +40,9 @@ function Kitchen() {
     };
 
     return (
-        <Container style={{height:'70vh'}}>
+        <Container>
             {Object.entries(groupedData).length === 0 ? (
-                <div className='card p-5 d-flex my-5 justify-content-center align-items-center'>
+                <div className='card p-5 d-flex mt-5 justify-content-center align-items-center mb-5'>
                     <img src="https://cdn.dribbble.com/users/1834025/screenshots/16497193/media/9f31f985466dc439c3714233cc598747.gif" alt=""  style={{width:'30%'}}/>
                     <h1 className='text-secondary'>Nothing to prepare</h1>
                 </div>

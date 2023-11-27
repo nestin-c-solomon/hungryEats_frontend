@@ -154,7 +154,7 @@ function Menu() {
           <option value="3">Three</option>
         </Form.Select>
       </Row>
-      <Row className='menu-items mt-5 justify-content-center'>
+      <Row className='menu-items mt-5 justify-content-center '>
   {menuItems.slice(0, displayedItems)?.map(item => (
     <Col key={item.id} xs={12} md={6} lg={3} className="mb-4">
       {/* setMenu(item) */}

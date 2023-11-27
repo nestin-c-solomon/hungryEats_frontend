@@ -11,7 +11,7 @@ import Footer from './Components/Foot';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App d-flex flex-column" style={{minHeight:'100vh'}}>
         <Header />
         <Routes>
           <Route path="/" element={<Landing />} />

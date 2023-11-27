@@ -17,5 +17,19 @@
       background-color: #91b81b;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    
+
+.App{
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+}
     

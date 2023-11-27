@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Navbar, Container, Nav, NavDropdown, Badge, Offcanvas } from 'react-bootstrap';
+import logo from '../Assets/logo.png';
+
 
 function Header() {
   const cartArray = useSelector((state) => state.cartReducer);
@@ -9,8 +11,9 @@ function Header() {
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="body-tertiary" variant="light" style={{ height: '60px' }}>
-      <Container>
+      <Container style={{height:'250px'}}>
         <Navbar.Brand as={Link} to="/" style={{ textDecoration: 'none', color: 'black', fontWeight: 'bolder', fontSize: '25px' }}>
+          <img src={logo} style={{backgroundBlendMode:'multiply', backgroundColor: 'transparent'}} width={100} alt="" />
           HungryEats
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
