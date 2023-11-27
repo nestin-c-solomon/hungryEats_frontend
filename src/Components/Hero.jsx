@@ -7,7 +7,7 @@ function Hero() {
     console.log(cartArray);
   return (
     
-      <div className='container -fluid d-flex ' style={{height:'500px'}}>
+      <div className='container d-flex ' style={{height:'500px'}}>
            
                     <div className='mt-5' style={{textAlign:'start'}}>
                         <h2 style={{marginTop:'10%', textAlign:'left',fontSize:'4rem'}}>Hungry?</h2>
