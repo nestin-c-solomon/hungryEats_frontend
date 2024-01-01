@@ -12,7 +12,7 @@ function Kitchen() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('https://r2-backend.onrender.com/order');
+            const response = await axios.get('https://r2-backend.onrender.com/order');   
             setData(response.data);
         } catch (error) {
             console.log(error);
